@@ -41,7 +41,7 @@ def GetMolProps(mol,
             if mp:
                 charge=np.array([mp.GetMMFFPartialCharge(i) for i in range(mol.GetNumAtoms())])
             else:
-                print("MMFF charges not available for the input molecule, defaulting to Gasteiger charges.")
+                # print("MMFF charges not available for the input molecule, defaulting to Gasteiger charges.")
                 AllChem.ComputeGasteigerCharges(mol)
                 charge=np.array([a.GetDoubleProp('_GasteigerCharge') for a in mol.GetAtoms()])
         elif partialCharges == 'ml':
